@@ -3,6 +3,7 @@ const {createServer} = require('https');
 const {readFileSync} = require('fs');
 const {Server} = require('socket.io');
 const PORT = process.env.PORT || 5000;
+const http = require('http');
 
 var tablicaKodow = [];
 
@@ -10,10 +11,11 @@ const app = express();
 //const robot = require('robotjs');   
 const {mouse, keyboard, Point, straightTo, Button, Key} = require("@nut-tree/nut-js");
 
-const httpServer = createServer({
-    key: readFileSync('cert/key.pem'),
-    cert: readFileSync('cert/cert.pem')
-}, app);
+
+
+const server = http.createServer(app);
+
+
 
 /*const { ExpressPeerServer } = require("peer");
 const peerServer = ExpressPeerServer(httpServer, {
@@ -28,7 +30,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/indexR.html');
 });
 
-const io = new Server(httpServer,{ });
+const io = require('socket.io')(server);
 
 io.on('connection', (socket) => {
     let isMouseDown = false;
@@ -222,7 +224,9 @@ io.on('connection', (socket) => {
 
 });
 
-httpServer.listen(PORT);
+server.listen(PORT, () => {
+	console.log(`nasluchiwanie na porcie ${PORT}`);
+});
 
 /*function clickKey(key){
     if(key === 'Enter'){ 
