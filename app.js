@@ -57,13 +57,13 @@ io.on('connection', (socket) => {
         //robot.moveMouse(data.x,data.y);
         
         // od Piotra
-        socket.emit('controlComp', {x: data.x, y: data.y});
+        //socket.emit('controlComp', {x: data.x, y: data.y});
         
-        /*try {
+        try {
             mouse.move(straightTo(new Point(data.x,data.y)));
         } catch (error) {
             console.log(error);
-        }*/
+        }
     });
 
     // USTAWIENIE POŁOŻENIE Z PRZESUNIĘCIA MYSZKI
