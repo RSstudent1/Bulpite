@@ -10,6 +10,7 @@ var isCreated = false;
 var isJoiner = false;
 
 var robot = null;
+const {mouse, keyboard, Point, straightTo, Button, Key} = require("@nut-tree/nut-js"); // od Piotra
 
 var input = document.getElementById('x');
 var input2 = document.getElementById('y');
@@ -24,6 +25,11 @@ socket.emit('sendCoordsFromInputs', {x: parseInt(input.value), y: parseInt(input
    input.value = '';
         input2.value = '';
     }
+});
+
+// od Piotra
+socket.on('controlComp', (data)=>{
+    mouse.move(straightTo(new Point(data.x,data.y)));
 });
 
 // OK
