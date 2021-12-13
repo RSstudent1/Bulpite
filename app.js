@@ -55,11 +55,15 @@ io.on('connection', (socket) => {
     // USTAWIENIE X-Y Z INPUTÓW
     socket.on('sendCoordsFromInputs', data=>{
         //robot.moveMouse(data.x,data.y);
-        try {
+        
+        // od Piotra
+        socket.emit('controlComp', {x: data.x, y: data.y});
+        
+        /*try {
             mouse.move(straightTo(new Point(data.x,data.y)));
         } catch (error) {
             console.log(error);
-        }
+        }*/
     });
 
     // USTAWIENIE POŁOŻENIE Z PRZESUNIĘCIA MYSZKI
