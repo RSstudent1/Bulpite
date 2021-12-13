@@ -10,7 +10,7 @@ var isCreated = false;
 var isJoiner = false;
 
 var robot = null;
-const {mouse, keyboard, Point, straightTo, Button, Key} = require("@nut-tree/nut-js"); // od Piotra
+//const {mouse, keyboard, Point, straightTo, Button, Key} = require("@nut-tree/nut-js"); // od Piotra
 
 var input = document.getElementById('x');
 var input2 = document.getElementById('y');
@@ -21,16 +21,16 @@ var screen = document.getElementById('remoteScreen');
 // OK
 document.getElementById('form').addEventListener('click',function(){
     if(input.value && input2.value){
-socket.emit('sendCoordsFromInputs', {x: parseInt(input.value), y: parseInt(input2.value)}); //to usun
-   input.value = '';
+        socket.emit('sendCoordsFromInputs', {x: parseInt(input.value), y: parseInt(input2.value)}); //to usun
+        input.value = '';
         input2.value = '';
     }
 });
 
 // od Piotra
-socket.on('controlComp', (data)=>{
+/*socket.on('controlComp', (data)=>{
     mouse.move(straightTo(new Point(data.x,data.y)));
-});
+});*/
 
 // OK
 document.getElementById('setRole').addEventListener('click',function(e){
