@@ -378,7 +378,7 @@ function addRemoteVideo(stream){
     });
 
     $(window).bind('keydown', (e)=>{
-        e.preventDefault();
+        //e.preventDefault(); //zmiany
         if(isOnRemoteDiv && role=='client'){
             socket.emit('sendPressKey',{k:e.key});
         }
