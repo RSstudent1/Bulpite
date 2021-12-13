@@ -20,8 +20,8 @@ var screen = document.getElementById('remoteScreen');
 // OK
 document.getElementById('form').addEventListener('click',function(){
     if(input.value && input2.value){
-        socket.emit('sendCoordsFromInputs', {x:input.value, y:input2.value});
-        input.value = '';
+socket.emit('sendCoordsFromInputs', {x: parseInt(input.value), y: parseInt(input2.value)}); //to usun
+   input.value = '';
         input2.value = '';
     }
 });
