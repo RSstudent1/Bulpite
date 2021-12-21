@@ -2,7 +2,7 @@ const express = require('express');
 const {createServer} = require('https');
 const {readFileSync} = require('fs');
 const {Server} = require('socket.io');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 var tablicaKodow = [];
 
